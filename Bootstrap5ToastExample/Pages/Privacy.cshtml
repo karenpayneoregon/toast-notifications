@@ -3,16 +3,34 @@
 @{
     ViewData["Title"] = "Stacking toast";
 }
-
+<style>
+    .btn {
+        width: 10em;
+    }
+</style>
 <div class="container mt-3">
 
     <div class="alert alert-success" role="alert">
         Stacking toast
     </div>
     
+    
+    <div class="row">
+        <div class="col">
+            <button type="button" class="btn btn-primary" id="toastButton1">Toast 1</button>
+        </div>
+        
+        <button type="button" class="btn btn-danger float-end" id="toastButton2">Toast 2</button>
+    </div>
 
-    <button type="button" class="btn btn-primary" id="toastButton1">Toast 1</button>
-    <button type="button" class="btn btn-danger float-end" id="toastButton2">Toast 2</button>
+    <div class="row mt-2">
+        <div class="col">
+            <button type="button" class="btn btn-secondary" id="bothToast">both</button>
+        </div>
+        
+        <button type="button" class="btn btn-success float-end" id="buttonSample">Click</button>
+    </div>
+    
   
     @*Toast code*@
     <partial name="_Privacy" model="Model.MessageContainer" />

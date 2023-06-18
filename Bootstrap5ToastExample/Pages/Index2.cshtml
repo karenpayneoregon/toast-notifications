@@ -1,0 +1,61 @@
+﻿@page
+@model Bootstrap5ToastExample.Pages.Index2Model
+@{
+}
+<div class="row">
+    Show two toast with a six second delay apart.
+</div>
+<div class="row">
+    <button type="button" class="btn btn-primary" style="width: 20.5em;" id="toastButton1">Show Toast</button>
+</div>
+
+
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+
+    <div class="toast-container position-fixed bottom-0 end-0">
+
+        <!-- Then put toasts within -->
+        <div class="toast bg-info" role="alert" aria-live="assertive" aria-atomic="true" id="toast1">
+            <div class="toast-header">
+                <strong class="me-auto">Bootstrap</strong>
+                <small class="text-muted">just now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                See? Just like this.
+            </div>
+        </div>
+
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" id="toast2">
+            <div class="toast-header">
+                <strong class="me-auto">Bootstrap</strong>
+                <small class="text-muted">Code sample</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                Heads up, toasts will stack automatically
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+   
+        /*
+         * Show two toast with six seconds apart
+         */
+        document.querySelector('#toastButton1').addEventListener('click', handleClick);
+
+        async function handleClick() {
+
+            $("#toast2").toast("show");
+
+            await new Promise((resolve) => setTimeout(resolve, 6000));
+
+            $("#toast1").toast("show");
+
+        }
+    </script>
+}

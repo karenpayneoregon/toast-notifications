@@ -1,0 +1,64 @@
+﻿@page
+@model WebNotifications.Pages.bs5UtilsPageModel
+@{
+
+}
+<input type="hidden" id="firstNotification" asp-for="FirstNotification" />
+<input type="hidden" id="secondNotification" asp-for="SecondNotification" />
+<div class="row">
+    <button type="button" class="btn btn-primary" style="width: 20.5em;" id="toastButton1">Show Toast</button>
+</div>
+
+@section Scripts
+{
+    <script src="~/lib/Bs5Utils.js"></script>
+    <script>
+
+        Bs5Utils.defaults.toasts.position = 'bottom-right';
+        Bs5Utils.defaults.toasts.dismissible  = true;
+        const bs5Utils = new Bs5Utils();
+
+        document.querySelector('#toastButton1').addEventListener('click', handleClick);
+
+        async function handleClick() {
+
+            bs5Utils.Snack.show('white', document.getElementById("firstNotification").value, delay = 5000, dismissible = true);
+
+            await new Promise((resolve) => setTimeout(resolve, 3000));
+
+            bs5Utils.Snack.show('dark', document.getElementById("secondNotification").value, delay = 4000, dismissible = true);
+
+            await new Promise((resolve) => setTimeout(resolve, 6000));
+
+            /*
+             * Some may like this but not my cup of tea
+             */
+            bs5Utils.Toast.show({
+                type: 'dark',
+                title: 'Notification',
+                content: 'Hello World!',
+                buttons: [
+                    {
+                        text: 'OK',
+                        class: 'btn btn-dark',
+                        handler: () => {
+                            youClickedMe();
+                        }
+                    }
+                ],
+                delay: 0,
+                dismissible: true
+            });
+
+        }
+
+        /*
+         * Shows an alert, perhaps do something more useful.
+         */
+        function youClickedMe() {
+            alert('You clicked me!!!');
+        }
+
+    </script>
+    
+}
