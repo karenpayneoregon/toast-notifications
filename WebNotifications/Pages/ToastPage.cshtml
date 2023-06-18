@@ -1,0 +1,73 @@
+﻿@page
+@model ToastPageModel
+@{
+    ViewData["Title"] = "Toast";
+}
+<style>
+    .btn {
+        width: 250px
+    }
+
+</style>
+
+<div class="container">
+    
+    <h1 class="fs-4">@ViewData["Title"]</h1>
+
+    <form method="post" id="toastForm">
+
+        <div class="d-grid gap-2">
+
+            <input type="submit" class="btn btn-success"  value="Success"
+                   asp-page-handler="SuccessNotification"/>
+
+            <input type="submit" class="btn btn-info"  value="Information"
+                   asp-page-handler="InformationNotification"/>
+
+            <input type="submit" class="btn btn-warning"  value="Warning"
+                   asp-page-handler="WarningNotification"/>
+
+            <input type="submit" class="btn btn-danger"  value="Error"
+                   asp-page-handler="ErrorNotification"/>
+
+            <input type="submit" class="btn btn-secondary"  value="Custom"
+                   asp-page-handler="CustomNotification"/>
+
+        </div>
+
+    </form>
+
+    <button id="toastr" class="btn btn-primary mt-2" >Toast me</button>
+
+
+
+</div>
+@section Scripts
+    {
+    <script>
+
+        document.getElementById("toastr").addEventListener("click", function (e) {
+
+            // see readme file in this project
+            toastr.options = {
+                "closeButton": true,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": true,
+                "positionClass": "toast-top-full-width",
+                "preventDuplicates": false,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "2000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            }
+
+            toastr["info"]("Welcome aboard");
+        });
+
+    </script>
+}

@@ -1,0 +1,40 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Stacking toast";
+}
+
+<div class="container mt-3">
+
+    <div class="alert alert-success" role="alert">
+        Stacking toast
+    </div>
+    
+
+    <button type="button" class="btn btn-primary" id="toastButton1">Toast 1</button>
+    <button type="button" class="btn btn-danger float-end" id="toastButton2">Toast 2</button>
+  
+    @*Toast code*@
+    <partial name="_Privacy" model="Model.MessageContainer" />
+    
+</div>
+
+@section Scripts
+{
+    <script>
+        document.getElementById("toastButton1").onclick = function() {
+            var toastElList = [].slice.call(document.querySelectorAll('#topToast'));
+            var toastList = toastElList.map(function(toastEl) {
+                return new bootstrap.Toast(toastEl);
+            });
+            toastList.forEach(toast => toast.show());
+        }
+        document.getElementById("toastButton2").onclick = function() {
+            var toastElList = [].slice.call(document.querySelectorAll('#bottomToast'));
+            var toastList = toastElList.map(function(toastEl) {
+                return new bootstrap.Toast(toastEl);
+            });
+            toastList.forEach(toast => toast.show());
+        }
+    </script>
+}

@@ -1,0 +1,41 @@
+﻿@page
+@model Bootstrap5ToastExample.Pages.Index1Model
+@{
+}
+<h1>Center Bootstrap toast</h1>
+<button type="button" class="btn btn-primary" id="toastButton1">Show Toast</button>
+
+<div aria-live="polite" 
+     aria-atomic="true" 
+     class="d-flex justify-content-center align-items-center w-100" 
+     style="height: calc(100vh - 125px - 125px);">
+
+    <div class="toast bg-danger" role="alert" aria-live="assertive" aria-atomic="true" id="toast1">
+        <div class="toast-header">
+            <strong class="me-auto">Alert</strong>
+            <small>code sample</small>
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body text-white">
+            This toast should be centered on the page
+        </div>
+    </div>
+</div>
+
+@section Scripts
+{
+    <script>
+
+        $(document).ready(function () {
+
+            console.log(document.getElementById('navBar').offsetHeight);
+            console.log(document.querySelector('body').offsetHeight);
+            console.log(document.querySelector('footer').offsetHeight);
+
+            $("#toastButton1").click(function () {
+                $("#toast1").toast("show");
+            });
+        });
+
+    </script>
+}

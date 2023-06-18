@@ -1,0 +1,70 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<link rel="stylesheet" href="~/@(nameof(Bootstrap5ToastExample)).styles.css" />
+
+<div class="container">
+
+    <h1>Toast Example</h1>
+
+    <p>In this example, we use a button to show the toast message.</p>
+
+    <button type="button" class="btn btn-primary" id="toastButton1">Show Toast on this page</button>
+
+    <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+
+        <div class="toast align-items-center bg-primary text-white border-0 position-relative top-50 start-50 translate-middle"
+             id="toast1" 
+             role="alert" 
+             aria-live="assertive" 
+             aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body">
+                    @Model.ToastMessage
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <form method="post" class="mt-3">
+
+        <div>
+            <label for="topToast" class="col-sm-2">Top toast</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control w-50" autocomplete="off" value="@Model.TopToast" name="topToast" id="topToast" placeholder="First name">
+            </div>
+        </div>
+
+        <div class="">
+            <label for="bottomToast" class="col-sm-2">Bottom toast</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control w-50" autocomplete="off" value="@Model.BottomToast" name="bottomToast" id="bottomToast" placeholder="First name">
+            </div>
+        </div>
+
+
+        <div class="mt-2">
+            <div class="col-sm-10">
+
+                <button type="submit"
+                        id="btn-submit"
+                        class="btn btn-primary">
+                    Go to next page
+                </button>
+
+            </div>
+        </div>
+    </form>
+
+</div>
+
+
+@section Scripts {
+    @*ignore visual studio not finding the file*@
+    <script src="~/Pages/Index.cshtml.js"></script>
+}
+
