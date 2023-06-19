@@ -39,7 +39,7 @@
         </div>
     </div>
     
-    @* Handling a click event for the left-most button *@
+    @* Handling a click event for  buttons *@
 
     <div class="toast" 
          role="alert" 
@@ -49,8 +49,20 @@
         <div class="toast-body">
             Click [Take action] button!
             <div class="mt-2 pt-2 border-top">
-                <button type="button" class="btn btn-primary btn-sm" id="takeAction">Take action</button>
-                <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+
+                <button type="button"
+                        class="btn btn-primary btn-sm"
+                        id="takeAction">
+                    Take action
+                </button>
+
+                <button type="button"
+                        class="btn btn-secondary btn-sm"
+                        id="noAction"
+                        data-bs-dismiss="toast">
+                    Close
+                </button>
+
             </div>
         </div>
     </div>

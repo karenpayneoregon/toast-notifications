@@ -1,3 +1,5 @@
+using Bootstrap5ToastExample.Classes;
+
 namespace Bootstrap5ToastExample;
 
 public class Program
@@ -8,6 +10,8 @@ public class Program
 
         // Add services to the container.
         builder.Services.AddRazorPages();
+
+        SetupLogging.Development();
 
         var app = builder.Build();
 

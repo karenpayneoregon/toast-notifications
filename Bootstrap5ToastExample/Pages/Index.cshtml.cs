@@ -27,8 +27,8 @@ public class IndexModel : PageModel
     }
     public IActionResult OnPost()
     {
-        Containers.Add(new ToastContainer() {Name = "Top", Body = Request.Form["topToast"] });
-        Containers.Add(new ToastContainer() {Name = "Bottom", Body = Request.Form["bottomToast"] });
+        Containers.Add(new ToastContainer() {Name = "Top", Body = TopToast });
+        Containers.Add(new ToastContainer() {Name = "Bottom", Body = BottomToast });
 
         return RedirectToPage("Privacy", new
         {

@@ -5,13 +5,18 @@
 }
 <input type="hidden" id="firstNotification" asp-for="FirstNotification" />
 <input type="hidden" id="secondNotification" asp-for="SecondNotification" />
+
+<div class="row mb-3">
+    Clicking the button below will show three toast with delays between each toast.
+</div>
 <div class="row">
-    <button type="button" class="btn btn-primary" style="width: 20.5em;" id="toastButton1">Show Toast</button>
+    <button type="button" class="btn btn-primary" style="width: 35em;" id="toastButton1">Show 3 Toast</button>
 </div>
 
 @section Scripts
 {
     <script src="~/lib/Bs5Utils.js"></script>
+
     <script>
 
         Bs5Utils.defaults.toasts.position = 'bottom-right';

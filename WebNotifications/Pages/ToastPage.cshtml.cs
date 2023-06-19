@@ -33,7 +33,6 @@ public class ToastPageModel : PageModel
     {
         _toastNotificationService.Success("Work finished");
 
-
     }
     public void OnPostInformationNotification()
     {
