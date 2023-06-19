@@ -32,7 +32,6 @@ public class ToastPageModel : PageModel
     public void OnPostSuccessNotification()
     {
         _toastNotificationService.Success("Work finished");
-
     }
     public void OnPostInformationNotification()
     {
@@ -58,7 +57,6 @@ public class ToastPageModel : PageModel
             durationInSeconds: 2, 
             backgroundColor: "black", 
             iconClassName: "fa fa-gear");
-
     }
 }
 

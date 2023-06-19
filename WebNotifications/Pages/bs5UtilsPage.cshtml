@@ -9,8 +9,14 @@
 <div class="row mb-3">
     Clicking the button below will show three toast with delays between each toast.
 </div>
+
 <div class="row">
-    <button type="button" class="btn btn-primary" style="width: 35em;" id="toastButton1">Show 3 Toast</button>
+    <button type="button"
+            class="btn btn-primary"
+            style="width: 35em;"
+            id="toastButton1">
+        Show 3 Toast
+    </button>
 </div>
 
 @section Scripts
@@ -27,11 +33,17 @@
 
         async function handleClick() {
 
-            bs5Utils.Snack.show('white', document.getElementById("firstNotification").value, delay = 5000, dismissible = true);
+            bs5Utils.Snack.show('white', 
+                document.getElementById("firstNotification").value, 
+                delay = 5000, 
+                dismissible = true);
 
             await new Promise((resolve) => setTimeout(resolve, 3000));
 
-            bs5Utils.Snack.show('dark', document.getElementById("secondNotification").value, delay = 4000, dismissible = true);
+            bs5Utils.Snack.show('dark', 
+                document.getElementById("secondNotification").value, 
+                delay = 4000, 
+                dismissible = true);
 
             await new Promise((resolve) => setTimeout(resolve, 6000));
 

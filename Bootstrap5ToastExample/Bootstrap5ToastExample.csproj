@@ -12,10 +12,12 @@
 
 	<ItemGroup>
 		<None Remove="readme.md" />
+		<None Remove="Stashes\stash.md" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<Content Include="readme.md" />
+		<Content Include="Stashes\stash.md" />
 	</ItemGroup>
 
 </Project>
