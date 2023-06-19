@@ -1,6 +1,7 @@
 ﻿@page
 @model Bootstrap5ToastExample.Pages.Index2Model
 @{
+    ViewBag.Title = @Model.BootstrapTitle;
 }
 <div class="row">
     Show two toast with a six second delay apart.
@@ -23,7 +24,7 @@
 
             <div class="toast-header">
 
-                <strong class="me-auto">Bootstrap</strong>
+                <strong class="me-auto">@ViewBag.Title</strong>
                 <small class="text-muted">just now</small>
 
                 <button type="button" 
@@ -44,8 +45,8 @@
 
             <div class="toast-header">
 
-                <strong class="me-auto">Bootstrap</strong>
-                <small class="text-muted">Code sample</small>
+                <strong class="me-auto">@ViewBag.Title</strong>
+                <small class="text-muted">>@ViewData["mutedText"]</small>
 
                 <button type="button" 
                         class="btn-close" 
