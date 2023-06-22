@@ -1,0 +1,44 @@
+﻿@page
+@model Bootstrap5ToastExample.Pages.Index3Model
+@{
+}
+<h1>Welcome to the Page</h1>
+<h2>Using <span class="text-secondary">new bootstrap.Toast(toastElement)</span></h2>
+<input type="hidden" id="bodyValue" asp-for="ToastBody" />
+<button class="btn btn-outline-dark" id="showToast">Toast</button>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+
+    <div class="toast align-items-center bg-primary text-white border-0 position-relative top-50 start-50 translate-middle"
+         id="toast1"
+         role="alert"
+         aria-live="assertive"
+         aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body">
+                <span id="toast-content"></span>
+            </div>
+            <button 
+                type="button" 
+                class="btn-close btn-close-white me-2 m-auto" 
+                data-bs-dismiss="toast" 
+                aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+@section Scripts
+    {
+    <script>
+        document.getElementById("showToast").addEventListener("click", function () {
+
+            var toastElement = document.getElementById('toast1');
+            toastElement.querySelector('#toast-content').innerHTML = document.getElementById('bodyValue').value;
+            let toast = new bootstrap.Toast(toastElement);
+
+            toast.show();
+        });
+
+
+    </script>
+}
