@@ -23,6 +23,7 @@ public partial class Form1 : Form
         }
 
         ToastOperations.OnInterceptHandler += ToastOperations_OnInterceptHandler;
+
     }
 
     /// <summary>

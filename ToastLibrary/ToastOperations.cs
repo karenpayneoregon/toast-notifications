@@ -46,10 +46,11 @@ public class ToastOperations
 
     public static void OnActivated()
     {
+        
         ToastNotificationManagerCompat.OnActivated += toastArgs =>
         {
             ToastArguments args = ToastArguments.Parse(toastArgs.Argument);
-
+            
             if (args.Contains(MainKey))
             {
                 if (args[MainKey] == Dictionary["key2"].ToString())
